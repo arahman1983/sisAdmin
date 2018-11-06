@@ -9,6 +9,7 @@ import ParentsPage from "./component/ParentsPage";
 import NotesPage from "./component/NotesPage";
 import SchoolScadualPage from "./component/SchoolScadualPage";
 import AddNotePage from "./component/notesPages/AddNotePage";
+import ViewNotePage from "./component/notesPages/ViewNotePage";
 
 const App = () => (
   <BrowserRouter>
@@ -23,6 +24,8 @@ const App = () => (
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
           <Route path="/addnote" component={AddNotePage} />
+          <Route path="/addnote/:from" component={AddNotePage} />
+          <Route path="/note/:id" component={ViewNotePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>

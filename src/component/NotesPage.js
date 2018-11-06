@@ -2,10 +2,12 @@ import React from "react";
 import NotesHeader from "./PageHeader";
 import NotesRow from "./notesPages/notesRow";
 import { connect } from "react-redux";
+import SendNoteBtn from "./AddNewBtn";
 
 export const NotesPage = props => (
   <div className="col-md-9">
     <NotesHeader section="Notes" />
+    <SendNoteBtn section="Add a Note" />
     <table className="table table-striped text-center">
       <thead>
         <tr>

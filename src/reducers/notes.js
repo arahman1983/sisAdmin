@@ -1,21 +1,24 @@
 const notesDefaultState = [
   {
-    id: 3,
+    id: "3",
     title: "New Note",
+    details: "some details",
     From: "MyMail",
     To: "Teacher",
     sentAt: 9000000
   },
   {
-    id: 1,
+    id: "1",
     title: "title",
+    details: "some details",
     From: "Teacher",
     To: "MyMail",
     sentAt: 200000
   },
   {
-    id: 2,
+    id: "2",
     title: "title",
+    details: "some details",
     From: "MyMail",
     To: "Teacher",
     sentAt: 500000
