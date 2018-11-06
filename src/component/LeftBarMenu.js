@@ -10,6 +10,7 @@ const LeftBarMenu = () => (
         className="list-group-item"
         activeClassName="navlinkActive"
         to="/"
+        exact={true}
       >
         Home
       </NavLink>

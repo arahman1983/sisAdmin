@@ -8,11 +8,12 @@ import TeachersPage from "./component/TeachersPage";
 import ParentsPage from "./component/ParentsPage";
 import NotesPage from "./component/NotesPage";
 import SchoolScadualPage from "./component/SchoolScadualPage";
+import AddNotePage from "./component/notesPages/AddNotePage";
 
 const App = () => (
   <BrowserRouter>
-    <div className="container-fluid">
-      <div className="row">
+    <div className="container-fluid h-100">
+      <div className="row h-100">
         <LeftBarMenu />
         <Switch>
           <Route path="/" component={WelcomePage} exact={true} />
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/parents" component={ParentsPage} />
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
+          <Route path="/addnote" component={AddNotePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
