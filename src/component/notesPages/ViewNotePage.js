@@ -30,12 +30,21 @@ export const ViewNotePage = props => {
         <p className="p-2">{props.noteToView.details}</p>
       </div>
       <div className="container-fluid bg-light">
-        <Link
-          className="btn btn-primary"
-          to={`/addnote/${props.noteToView.From}`}
-        >
-          <h5>Replay</h5>
-        </Link>
+        <div className="row">
+          <div className="col-md-6">
+            <Link
+              className="btn btn-primary"
+              to={`/addnote/${props.noteToView.From}`}
+            >
+              <h5>Replay</h5>
+            </Link>
+          </div>
+          <div className="col-md-6">
+            <button className="btn btn-warning">
+              <h5>Delete</h5>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

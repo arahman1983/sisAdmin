@@ -14,9 +14,6 @@ const NotesRow = ({ id, title, From, To, sentAt }) => {
           View
         </Link>
       </td>
-      <td>
-        <button className="btn btn-warning">Delete</button>
-      </td>
     </tr>
   );
 };

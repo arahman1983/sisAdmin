@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NotFoundPage from "./component/NotFoundPage";
 import LeftBarMenu from "./component/LeftBarMenu";
 import WelcomePage from "./component/WelcomePage";
-import StudentsPage from "./component/StudentsPage";
-import TeachersPage from "./component/TeachersPage";
-import ParentsPage from "./component/ParentsPage";
-import NotesPage from "./component/NotesPage";
-import SchoolScadualPage from "./component/SchoolScadualPage";
+import StudentsPage from "./component/students/StudentsPage";
+import TeachersPage from "./component/teachers/TeachersPage";
+import ParentsPage from "./component/parents/ParentsPage";
+import NotesPage from "./component/notesPages/NotesPage";
+import SchoolScadualPage from "./component/scadual/SchoolScadualPage";
 import AddNotePage from "./component/notesPages/AddNotePage";
 import ViewNotePage from "./component/notesPages/ViewNotePage";
 

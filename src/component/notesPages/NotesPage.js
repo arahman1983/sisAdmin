@@ -1,8 +1,8 @@
 import React from "react";
-import NotesHeader from "./PageHeader";
-import NotesRow from "./notesPages/notesRow";
+import NotesHeader from "../PageHeader";
+import NotesRow from "./notesRow";
 import { connect } from "react-redux";
-import SendNoteBtn from "./AddNewBtn";
+import SendNoteBtn from "../AddNewBtn";
 
 export const NotesPage = props => (
   <div className="col-md-9">
@@ -15,7 +15,6 @@ export const NotesPage = props => (
           <th scope="col">From</th>
           <th scope="col">To</th>
           <th scope="col">Sent At</th>
-          <th scope="col"> </th>
           <th scope="col"> </th>
         </tr>
       </thead>
