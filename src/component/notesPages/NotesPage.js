@@ -3,6 +3,7 @@ import NotesHeader from "../PageHeader";
 import NotesRow from "./notesRow";
 import { connect } from "react-redux";
 import SendNoteBtn from "../AddNewBtn";
+import {getVisibleData} from "../../selectors/arrangeByDate";
 
 export const NotesPage = props => (
   <div className="col-md-9">
@@ -28,7 +29,7 @@ export const NotesPage = props => (
 );
 
 const mapStateToProps = state => ({
-  notes: state.notes
+  notes: getVisibleData(state.notes, state.filters)
 });
 
 export default connect(mapStateToProps)(NotesPage);

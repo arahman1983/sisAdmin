@@ -11,7 +11,7 @@ const NotesRow = ({ id, title, From, To, sentAt }) => {
       <td>{moment(sentAt).format("MMM Do, YY")}</td>
       <td>
         <Link className="btn btn-primary" to={`/note/${id}`}>
-          View
+          <h6>View</h6>
         </Link>
       </td>
     </tr>

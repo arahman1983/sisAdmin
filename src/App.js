@@ -23,7 +23,7 @@ const App = () => (
           <Route path="/parents" component={ParentsPage} />
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
-          <Route path="/addnote" component={AddNotePage} />
+          <Route path="/addnote" component={AddNotePage} exact={true} />
           <Route path="/addnote/:from" component={AddNotePage} />
           <Route path="/note/:id" component={ViewNotePage} />
           <Route component={NotFoundPage} />

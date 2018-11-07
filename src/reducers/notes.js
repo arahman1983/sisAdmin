@@ -26,8 +26,10 @@ const notesDefaultState = [
 ];
 const notesReducer = (state = notesDefaultState, action) => {
   switch (action.type) {
-    //case "SET_EXPENSES":
-    //return action.expenses;
+    case "ADD_NOTE":
+    return [...state , action.note];
+    case "REMOVE_NOTE":
+    return state.filter(({id})=> id !== action.id);
     default:
       return state;
   }
