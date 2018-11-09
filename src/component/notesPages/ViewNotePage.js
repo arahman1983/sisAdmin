@@ -9,7 +9,7 @@ export const ViewNotePage = props => {
   return (
     <div className="col-md-9">
       <NotesHeader section="Notes" />
-      <SendNoteBtn section="Add a Note" />
+      <SendNoteBtn link="/addnote" section="Add a Note" />
       <div className="container-fluid">
         <div className="row bg-light">
           <div className="col-6">

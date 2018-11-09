@@ -5,7 +5,7 @@ import SendNoteBtn from "../AddNewBtn";
 const TeachersPage = () => (
 <div className="col-md-9">
 <NotesHeader section="Teachers" />
-  <SendNoteBtn section="Add Teacher" />
+  <SendNoteBtn link="/addTeacher" section="Add Teacher" />
     <p>Teachers Page</p>
   </div>
 );

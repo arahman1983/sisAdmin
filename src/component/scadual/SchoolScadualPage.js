@@ -5,7 +5,7 @@ import SendNoteBtn from "../AddNewBtn";
 const SchoolScadualPage = () => (
   <div className="col-md-9">
   <NotesHeader section="School Scadual" />
-  <SendNoteBtn section="Add New item" />
+  <SendNoteBtn link="/additem" section="Add New Item" />
     <p>School Scadual Page</p>
   </div>
 );

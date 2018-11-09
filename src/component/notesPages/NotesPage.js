@@ -8,7 +8,7 @@ import {getVisibleData} from "../../selectors/arrangeByDate";
 export const NotesPage = props => (
   <div className="col-md-9">
     <NotesHeader section="Notes" />
-    <SendNoteBtn section="Add a Note" />
+    <SendNoteBtn link="/addnote" section="Add a Note" />
     <table className="table table-striped text-center">
       <thead>
         <tr>

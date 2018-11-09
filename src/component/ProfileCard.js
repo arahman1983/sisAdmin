@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const ProfileCard = () => (
   <div className="row">
@@ -9,7 +10,7 @@ const ProfileCard = () => (
         alt="Name"
       />
     </div>
-    <h4 className="text-center w-100">Full Name of Profile</h4>
+    <Link className="text-center w-100" to="/profile"><h4>Full Name of Profile</h4></Link>
     <p className="text-center w-100">Title, position, job</p>
   </div>
 );
