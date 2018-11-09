@@ -18,11 +18,21 @@ const App = () => (
         <LeftBarMenu />
         <Switch>
           <Route path="/" component={WelcomePage} exact={true} />
+          <Route path="/profile" component={WelcomePage} />
+          <Route path="/editprofile" component={WelcomePage} />
           <Route path="/students" component={StudentsPage} />
+          <Route path="/addStudent" component={StudentsPage} />
+          <Route path="/editStudent/:id" component={StudentsPage} />
           <Route path="/teachers" component={TeachersPage} />
+          <Route path="/addTeacher" component={TeachersPage} />
+          <Route path="/editTeacher/:id" component={TeachersPage} />
           <Route path="/parents" component={ParentsPage} />
+          <Route path="/addparent" component={ParentsPage} />
+          <Route path="/editparent/:id" component={ParentsPage} />
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
+          <Route path="/additem" component={SchoolScadualPage} />
+          <Route path="/edititem/:id" component={SchoolScadualPage} />
           <Route path="/addnote" component={AddNotePage} exact={true} />
           <Route path="/addnote/:from" component={AddNotePage} />
           <Route path="/note/:id" component={ViewNotePage} />
