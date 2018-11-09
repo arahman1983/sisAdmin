@@ -1,1 +1,1 @@
-An Admin paanel for school Administration
+An Admin panel for school Administration
