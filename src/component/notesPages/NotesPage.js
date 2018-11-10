@@ -3,12 +3,17 @@ import NotesHeader from "../PageHeader";
 import NotesRow from "./notesRow";
 import { connect } from "react-redux";
 import SendNoteBtn from "../AddNewBtn";
-import {getVisibleData} from "../../selectors/arrangeByDate";
+import TotalItems from "../total";
+import { getVisibleData } from "../../selectors/arrangeByDate";
 
 export const NotesPage = props => (
   <div className="col-md-9">
     <NotesHeader section="Notes" />
     <SendNoteBtn link="/addnote" section="Add a Note" />
+    <TotalItems
+      itemName={props.notes.length === 1 ? "Note" : "notes"}
+      dataarray={props.notes.length}
+    />
     <table className="table table-striped text-center">
       <thead>
         <tr>

@@ -3,7 +3,7 @@ const notesDefaultState = [
     id: "3",
     title: "New Note",
     details: "some details",
-    From: "MyMail",
+    From: "MyMail@sfdf.ddd",
     To: "Teacher",
     sentAt: 9000000
   },
@@ -11,7 +11,7 @@ const notesDefaultState = [
     id: "1",
     title: "title",
     details: "some details",
-    From: "Teacher",
+    From: "Teacher@sdgdg.dd",
     To: "MyMail",
     sentAt: 200000
   },
@@ -19,7 +19,7 @@ const notesDefaultState = [
     id: "2",
     title: "title",
     details: "some details",
-    From: "MyMail",
+    From: "MyMail@sfdf.ddd",
     To: "Teacher",
     sentAt: 500000
   }
@@ -27,9 +27,9 @@ const notesDefaultState = [
 const notesReducer = (state = notesDefaultState, action) => {
   switch (action.type) {
     case "ADD_NOTE":
-    return [...state , action.note];
+      return [...state, action.note];
     case "REMOVE_NOTE":
-    return state.filter(({id})=> id !== action.id);
+      return state.filter(({ id }) => id !== action.id);
     default:
       return state;
   }

@@ -10,6 +10,8 @@ import NotesPage from "./component/notesPages/NotesPage";
 import SchoolScadualPage from "./component/scadual/SchoolScadualPage";
 import AddNotePage from "./component/notesPages/AddNotePage";
 import ViewNotePage from "./component/notesPages/ViewNotePage";
+import StudentData from "./component/students/studentData";
+import EditStudent from "./component/students/editStudent";
 
 const App = () => (
   <BrowserRouter>
@@ -22,7 +24,8 @@ const App = () => (
           <Route path="/editprofile" component={WelcomePage} />
           <Route path="/students" component={StudentsPage} />
           <Route path="/addStudent" component={StudentsPage} />
-          <Route path="/editStudent/:id" component={StudentsPage} />
+          <Route path="/studentData/:id" component={StudentData} />
+          <Route path="/editStudent/:id" component={EditStudent} />
           <Route path="/teachers" component={TeachersPage} />
           <Route path="/addTeacher" component={TeachersPage} />
           <Route path="/editTeacher/:id" component={TeachersPage} />

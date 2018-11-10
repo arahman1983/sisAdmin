@@ -18,30 +18,3 @@ const jsx = (
 
 ReactDOM.render(<Loading />, document.getElementById("root"));
 ReactDOM.render(jsx, document.getElementById("root"));
-
-/*
-let hasRendered = false;
-const renderApp = () => {
-  if (!hasRendered) {
-    ReactDOM.render(<App />, document.getElementById("root"));
-    hasRendered = true;
-  }
-};
-
-
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    store.dispatch(login(user.uid));
-    store.dispatch(startsetExpenses()).then(() => {
-      renderApp();
-      if (history.location.pathname === "/") {
-        history.push("/dashboard");
-      }
-    });
-  } else {
-    store.dispatch(logout());
-    renderApp();
-    history.push("/");
-  }
-});
-*/
