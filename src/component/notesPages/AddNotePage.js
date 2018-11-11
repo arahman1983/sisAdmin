@@ -7,7 +7,6 @@ import { addNote } from "../../actions/notes";
 
 const AddNotePage = props => {
   const email = props.match.params;
-  console.log(email);
   return (
     <div className="col-md-9">
       <NotesHeader section="Notes" />
@@ -15,6 +14,9 @@ const AddNotePage = props => {
       <div className="container-fluid">
         <NoteForm
           From={email.from}
+          student={props.student}
+          teacher={props.teacher}
+          parent={props.parent}
           onSubmit={note => {
             props.dispatch(addNote(note));
             props.history.push("/notes");
@@ -25,10 +27,12 @@ const AddNotePage = props => {
   );
 };
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = state => {
   return {
     noteToView: state.notes,
-    student: state.students
+    student: state.students,
+    teacher: state.teachers,
+    parent: state.parents
   };
 };
 
