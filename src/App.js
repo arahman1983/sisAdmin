@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NotFoundPage from "./component/NotFoundPage";
 import LeftBarMenu from "./component/LeftBarMenu";
 import WelcomePage from "./component/WelcomePage";
-import ParentsPage from "./component/parents/ParentsPage";
 import NotesPage from "./component/notesPages/NotesPage";
 import SchoolScadualPage from "./component/scadual/SchoolScadualPage";
 
@@ -19,6 +18,11 @@ import TeachersPage from "./component/teachers/teachersPage";
 import TeacherData from "./component/teachers/teacherData";
 import EditTeacher from "./component/teachers/editTeacher";
 import AddTeacher from "./component/teachers/addTeacher";
+
+import ParentsPage from "./component/parents/ParentsPage";
+import ParentData from "./component/parents/parentData";
+import EditParent from "./component/parents/editParent";
+import AddParent from "./component/parents/addParent";
 
 const App = () => (
   <BrowserRouter>
@@ -41,8 +45,10 @@ const App = () => (
           <Route path="/editTeacher/:id" component={EditTeacher} />
 
           <Route path="/parents" component={ParentsPage} />
-          <Route path="/addparent" component={ParentsPage} />
-          <Route path="/editparent/:id" component={ParentsPage} />
+          <Route path="/addParent" component={AddParent} />
+          <Route path="/ParentData/:id" component={ParentData} />
+          <Route path="/editParent/:id" component={EditParent} />
+
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
           <Route path="/additem" component={SchoolScadualPage} />
