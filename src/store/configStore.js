@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import notesReducer from "../reducers/notes";
 import filtersReducer from "../reducers/filters";
 import studentsReducer from "../reducers/students";
+import teachersReducer from "../reducers/teachers";
 
 const comoseEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -11,6 +12,7 @@ export default () => {
     combineReducers({
       notes: notesReducer,
       students: studentsReducer,
+      teachers: teachersReducer,
       filters: filtersReducer
     }),
     comoseEnhancers(applyMiddleware(thunk))

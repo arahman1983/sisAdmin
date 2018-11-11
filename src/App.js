@@ -3,15 +3,22 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NotFoundPage from "./component/NotFoundPage";
 import LeftBarMenu from "./component/LeftBarMenu";
 import WelcomePage from "./component/WelcomePage";
-import StudentsPage from "./component/students/StudentsPage";
-import TeachersPage from "./component/teachers/TeachersPage";
 import ParentsPage from "./component/parents/ParentsPage";
 import NotesPage from "./component/notesPages/NotesPage";
 import SchoolScadualPage from "./component/scadual/SchoolScadualPage";
+
 import AddNotePage from "./component/notesPages/AddNotePage";
 import ViewNotePage from "./component/notesPages/ViewNotePage";
+
+import StudentsPage from "./component/students/StudentsPage";
 import StudentData from "./component/students/studentData";
 import EditStudent from "./component/students/editStudent";
+import AddStudent from "./component/students/addStudent";
+
+import TeachersPage from "./component/teachers/teachersPage";
+import TeacherData from "./component/teachers/teacherData";
+import EditTeacher from "./component/teachers/editTeacher";
+import AddTeacher from "./component/teachers/addTeacher";
 
 const App = () => (
   <BrowserRouter>
@@ -22,13 +29,17 @@ const App = () => (
           <Route path="/" component={WelcomePage} exact={true} />
           <Route path="/profile" component={WelcomePage} />
           <Route path="/editprofile" component={WelcomePage} />
+
           <Route path="/students" component={StudentsPage} />
-          <Route path="/addStudent" component={StudentsPage} />
+          <Route path="/addStudent" component={AddStudent} />
           <Route path="/studentData/:id" component={StudentData} />
           <Route path="/editStudent/:id" component={EditStudent} />
+
           <Route path="/teachers" component={TeachersPage} />
-          <Route path="/addTeacher" component={TeachersPage} />
-          <Route path="/editTeacher/:id" component={TeachersPage} />
+          <Route path="/addTeacher" component={AddTeacher} />
+          <Route path="/teacherData/:id" component={TeacherData} />
+          <Route path="/editTeacher/:id" component={EditTeacher} />
+
           <Route path="/parents" component={ParentsPage} />
           <Route path="/addparent" component={ParentsPage} />
           <Route path="/editparent/:id" component={ParentsPage} />

@@ -1,8 +1,9 @@
 import uuid from "uuid";
 var d = new Date();
-export const addStudent = ({
+export const addTeacher = ({
   enName = "",
   arName = "",
+  specialize = "",
   grade = "",
   email = "",
   phone = "",
@@ -11,11 +12,12 @@ export const addStudent = ({
   hoppiesActivities = "",
   pic = ""
 } = {}) => ({
-  type: "ADD_STUDENT",
-  student: {
+  type: "ADD_TEACHER",
+  teacher: {
     id: uuid(),
     enName,
     arName,
+    specialize,
     grade,
     email,
     phone,
@@ -27,13 +29,13 @@ export const addStudent = ({
   }
 });
 
-export const editStudent = (id, updates) => ({
-  type: "EDIT_STUDENT",
+export const editTeacher = (id, updates) => ({
+  type: "EDIT_TEACHER",
   id,
   updates
 });
 
-export const removeStudent = ({ id } = {}) => ({
-  type: "REMOVE_STUDENT_DATA",
+export const removeTeacher = ({ id } = {}) => ({
+  type: "REMOVE_TEACHER_DATA",
   id
 });

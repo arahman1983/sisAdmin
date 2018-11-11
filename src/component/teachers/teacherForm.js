@@ -1,21 +1,22 @@
 import React from "react";
 import uuid from "uuid";
 
-export class StudentForm extends React.Component {
+export class TeacherForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.student ? props.student.id : uuid(),
-      enName: props.student ? props.student.enName : "",
-      arName: props.student ? props.student.arName : "",
-      grade: props.student ? props.student.grade : "",
-      email: props.student ? props.student.email : "",
-      phone: props.student ? props.student.phone : "",
-      username: props.student ? props.student.username : "",
-      password: props.student ? props.student.password : "",
-      hoppiesActivities: props.student ? props.student.hoppiesActivities : "",
-      pic: props.student ? props.student.pic : "",
-      btnLable: props.student ? "Edit Student Data" : "Add Student Data",
+      id: props.teacher ? props.teacher.id : uuid(),
+      enName: props.teacher ? props.teacher.enName : "",
+      arName: props.teacher ? props.teacher.arName : "",
+      grade: props.teacher ? props.teacher.grade : "",
+      specialize: props.teacher ? props.teacher.specialize : "",
+      email: props.teacher ? props.teacher.email : "",
+      phone: props.teacher ? props.teacher.phone : "",
+      username: props.teacher ? props.teacher.username : "",
+      password: props.teacher ? props.teacher.password : "",
+      hoppiesActivities: props.teacher ? props.teacher.hoppiesActivities : "",
+      pic: props.teacher ? props.teacher.pic : "",
+      btnLable: props.teacher ? "Edit Teacher Data" : "Add Teacher Data",
       error: ""
     };
   }
@@ -68,12 +69,19 @@ export class StudentForm extends React.Component {
     }));
   };
 
+  specializeChange = e => {
+    const specialize = e.target.value;
+    this.setState(() => ({
+      specialize
+    }));
+  };
+
   onSubmit = e => {
     e.preventDefault();
     var d = new Date();
     if (!this.state.username) {
       this.setState(() => ({
-        error: "You should add details and email to send at least"
+        error: "You should add username and email to send at least"
       }));
     } else {
       this.setState(() => ({
@@ -84,6 +92,7 @@ export class StudentForm extends React.Component {
         enName: this.state.enName,
         arName: this.state.arName,
         grade: this.state.grade,
+        specialize: this.state.specialize,
         email: this.state.email,
         phone: this.state.phone,
         username: this.state.username,
@@ -92,7 +101,6 @@ export class StudentForm extends React.Component {
         pic: this.state.pic,
         sentAt: d.getTime()
       });
-      console.log(this.state.enName);
     }
   };
 
@@ -122,7 +130,18 @@ export class StudentForm extends React.Component {
           />
         </div>
         <div className="form-group">
-          <span>Grade: </span>
+          <span>Specialization : </span>
+          <input
+            name="specialize"
+            type="text"
+            className="form-control"
+            placeholder="Specialization"
+            value={this.state.specialize}
+            onChange={this.specializeChange}
+          />
+        </div>
+        <div className="form-group">
+          <span>Grades: </span>
           <input
             name="grade"
             type="text"
@@ -177,7 +196,7 @@ export class StudentForm extends React.Component {
           />
         </div>
         <div className="form-group">
-          <span>Hobbies And Activities : </span>
+          <span>Others : </span>
           <textarea
             name="activities"
             className="form-control"
@@ -190,6 +209,7 @@ export class StudentForm extends React.Component {
         {this.state.pic ? (
           <div className="form-group">
             <span>Picture: </span>
+            <br />
             <img
               src={`/img/${this.state.pic}`}
               className="rounded-circle img-thumbnail my-3 profileImge"

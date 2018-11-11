@@ -1,9 +1,10 @@
-const studentsDefaultState = [
+const teachersDefaultState = [
   {
     id: "1",
     enName: "Lamees",
     arName: "لميس",
-    grade: "3",
+    specialize: "English",
+    grade: "3,5",
     email: "example@domain.ext",
     phone: "+00 000 000",
     username: "userName",
@@ -13,26 +14,26 @@ const studentsDefaultState = [
     sentAt: 9000000
   }
 ];
-const studentsReducer = (state = studentsDefaultState, action) => {
+const teachersReducer = (state = teachersDefaultState, action) => {
   switch (action.type) {
-    case "ADD_STUDENT":
-      return [...state, action.student];
-    case "EDIT_STUDENT":
-      return state.map(student => {
-        if (student.id === action.id) {
+    case "ADD_TEACHER":
+      return [...state, action.teacher];
+    case "EDIT_TEACHER":
+      return state.map(teacher => {
+        if (teacher.id === action.id) {
           return {
-            ...student,
+            ...teacher,
             ...action.updates
           };
         } else {
-          return student;
+          return teacher;
         }
       });
-    case "REMOVE_STUDENT_DATA":
+    case "REMOVE_TEACHER_DATA":
       return state.filter(({ id }) => id !== action.id);
     default:
       return state;
   }
 };
 
-export default studentsReducer;
+export default teachersReducer;
