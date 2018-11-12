@@ -1,5 +1,10 @@
 import React from "react";
 import uuid from "uuid";
+import { FilePond, File, registerPlugin } from "react-filepond";
+import "filepond/dist/filepond.min.css";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+registerPlugin(FilePondPluginImagePreview);
 
 export class StudentForm extends React.Component {
   constructor(props) {
@@ -68,6 +73,12 @@ export class StudentForm extends React.Component {
     }));
   };
 
+  handleInit() {
+    return {
+      //pic: this.state.pic
+    };
+  }
+
   onSubmit = e => {
     e.preventDefault();
     var d = new Date();
@@ -97,6 +108,7 @@ export class StudentForm extends React.Component {
   };
 
   render() {
+    console.log(this.state.pic);
     return (
       <form onSubmit={this.onSubmit} className="my-3">
         <div className="form-group">
@@ -195,22 +207,39 @@ export class StudentForm extends React.Component {
               className="rounded-circle img-thumbnail my-3 profileImge"
               alt="Name"
             />
-            <input
-              name="pic"
-              type="file"
-              className="form-control"
-              placeholder="profile pic"
-            />
+            <FilePond
+              ref={ref => (this.pond = ref)}
+              server="/img"
+              oninit={() => this.handleInit()}
+              onupdatefiles={fileItems => {
+                // Set current file objects to this.state
+                this.setState({
+                  pic: fileItems.file
+                });
+              }}
+            >
+              {/* Update current files  */}
+              <File key={this.state.pic} src={this.state.pic} origin="img" />
+            </FilePond>
           </div>
         ) : (
           <div className="form-group">
             <span>Picture: </span>
-            <input
-              name="pic"
-              type="file"
-              className="form-control"
-              placeholder="profile pic"
-            />
+            <FilePond
+              ref={ref => (this.pond = ref)}
+              server="/img"
+              oninit={() => this.handleInit()}
+              onupdatefiles={fileItems => {
+                // Set current file objects to this.state
+                this.setState({
+                  pic: fileItems.file
+                });
+                console.log(this.state.pic);
+              }}
+            >
+              {/* Update current files  */}
+              <File key={this.state.pic} src={this.state.pic} origin="img" />
+            </FilePond>
           </div>
         )}
 
