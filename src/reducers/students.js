@@ -11,6 +11,32 @@ const studentsDefaultState = [
     hoppiesActivities: "some data",
     pic: "/profile.png",
     sentAt: 9000000
+  },
+  {
+    id: "2",
+    enName: "Lana",
+    arName: "لميس",
+    grade: "3",
+    email: "example@domain.ext",
+    phone: "+00 000 000",
+    username: "userName",
+    password: "password",
+    hoppiesActivities: "some data",
+    pic: "/profile.png",
+    sentAt: 9000000
+  },
+  {
+    id: "3",
+    enName: "Hadeel",
+    arName: "لميس",
+    grade: "3",
+    email: "example@domain.ext",
+    phone: "+00 000 000",
+    username: "userName",
+    password: "password",
+    hoppiesActivities: "some data",
+    pic: "/profile.png",
+    sentAt: 9000000
   }
 ];
 const studentsReducer = (state = studentsDefaultState, action) => {
