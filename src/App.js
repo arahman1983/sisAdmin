@@ -24,6 +24,9 @@ import ParentData from "./component/parents/parentData";
 import EditParent from "./component/parents/editParent";
 import AddParent from "./component/parents/addParent";
 
+import ViewProfile from "./component/profile/viewProfile";
+import EditProfile from "./component/profile/editProdile";
+
 const App = () => (
   <BrowserRouter>
     <div className="container-fluid h-100">
@@ -31,8 +34,8 @@ const App = () => (
         <LeftBarMenu />
         <Switch>
           <Route path="/" component={WelcomePage} exact={true} />
-          <Route path="/profile" component={WelcomePage} />
-          <Route path="/editprofile" component={WelcomePage} />
+          <Route path="/profile" component={ViewProfile} />
+          <Route path="/editprofile" component={EditProfile} />
 
           <Route path="/students" component={StudentsPage} />
           <Route path="/addStudent" component={AddStudent} />
