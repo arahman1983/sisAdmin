@@ -1,5 +1,6 @@
 import React from "react";
 import uuid from "uuid";
+import axios from "axios";
 
 export class ParentForm extends React.Component {
   constructor(props) {
@@ -102,6 +103,16 @@ export class ParentForm extends React.Component {
     }
   };
 
+  fileChangedHandler = event => {
+    this.setState({ pic: event.target.files[0].name });
+    const formData = new FormData();
+    formData.append("myFile", this.state.pic, this.state.pic.name);
+    axios.post("/img", formData, {
+      onUploadProgress: progressEvent => {
+        console.log(progressEvent.loaded / progressEvent.total);
+      }
+    });
+  };
   render() {
     return (
       <form onSubmit={this.onSubmit} className="my-3">
@@ -194,30 +205,36 @@ export class ParentForm extends React.Component {
         </div>
 
         {this.state.pic ? (
-          <div className="form-group">
+          <div className="form-group uploadDiv">
             <span>Picture: </span>
-            <br />
             <img
               src={`/img/${this.state.pic}`}
               className="rounded-circle img-thumbnail my-3 profileImge"
               alt="Name"
             />
+            <br />
             <input
-              name="pic"
+              className="inputFile"
               type="file"
-              className="form-control"
-              placeholder="profile pic"
+              name="file"
+              id="file"
+              onChange={this.fileChangedHandler}
             />
+            <br />
+            <label htmlFor="file">Choose a file</label>
           </div>
         ) : (
-          <div className="form-group">
+          <div className="form-group uploadDiv">
             <span>Picture: </span>
             <input
-              name="pic"
+              className="inputFile"
               type="file"
-              className="form-control"
-              placeholder="profile pic"
+              name="file"
+              id="file"
+              onChange={this.fileChangedHandler}
             />
+            <br />
+            <label htmlFor="file">Choose a file</label>
           </div>
         )}
 

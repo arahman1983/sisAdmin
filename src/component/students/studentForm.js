@@ -1,11 +1,13 @@
 import React from "react";
 import uuid from "uuid";
-import { FilePond, File, registerPlugin } from "react-filepond";
+
+import axios from "axios";
+/*import { FilePond, File, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
 registerPlugin(FilePondPluginImagePreview);
-
+*/
 export class StudentForm extends React.Component {
   constructor(props) {
     super(props);
@@ -72,13 +74,16 @@ export class StudentForm extends React.Component {
       hoppiesActivities
     }));
   };
-
-  handleInit() {
-    return {
-      //pic: this.state.pic
-    };
-  }
-
+  fileChangedHandler = event => {
+    this.setState({ pic: event.target.files[0].name });
+    const formData = new FormData();
+    formData.append("myFile", this.state.pic, this.state.pic.name);
+    axios.post("/img", formData, {
+      onUploadProgress: progressEvent => {
+        console.log(progressEvent.loaded / progressEvent.total);
+      }
+    });
+  };
   onSubmit = e => {
     e.preventDefault();
     var d = new Date();
@@ -200,32 +205,62 @@ export class StudentForm extends React.Component {
         </div>
 
         {this.state.pic ? (
-          <div className="form-group">
+          <div className="form-group uploadDiv">
             <span>Picture: </span>
             <img
               src={`/img/${this.state.pic}`}
               className="rounded-circle img-thumbnail my-3 profileImge"
               alt="Name"
             />
-            <FilePond
-              ref={ref => (this.pond = ref)}
-              server="/img"
-              oninit={() => this.handleInit()}
-              onupdatefiles={fileItems => {
-                // Set current file objects to this.state
-                this.setState({
-                  pic: fileItems.file
-                });
-              }}
-            >
-              {/* Update current files  */}
-              <File key={this.state.pic} src={this.state.pic} origin="img" />
-            </FilePond>
+            <br />
+            <input
+              className="inputFile"
+              type="file"
+              name="file"
+              id="file"
+              onChange={this.fileChangedHandler}
+            />
+            <br />
+            <label htmlFor="file">Choose a file</label>
           </div>
         ) : (
-          <div className="form-group">
+          <div className="form-group uploadDiv">
             <span>Picture: </span>
-            <FilePond
+            <input
+              className="inputFile"
+              type="file"
+              name="file"
+              id="file"
+              onChange={this.fileChangedHandler}
+            />
+            <br />
+            <label htmlFor="file">Choose a file</label>
+          </div>
+        )}
+
+        <div className="form-group">
+          <button className="btn btn-primary">{this.state.btnLable}</button>
+        </div>
+      </form>
+    );
+  }
+}
+
+/*
+ fileChangedHandler = event => {
+    this.setState({ pic: event.target.files[0].name });
+    const formData = new FormData();
+    formData.append("myFile", this.state.pic, this.state.pic.name);
+    axios.post("/img", formData, {
+      onUploadProgress: progressEvent => {
+        console.log(progressEvent.loaded / progressEvent.total);
+      }
+    });
+  };
+
+ 
+
+<FilePond
               ref={ref => (this.pond = ref)}
               server="/img"
               oninit={() => this.handleInit()}
@@ -237,16 +272,7 @@ export class StudentForm extends React.Component {
                 console.log(this.state.pic);
               }}
             >
-              {/* Update current files  */}
+              {/* Update current files  
               <File key={this.state.pic} src={this.state.pic} origin="img" />
             </FilePond>
-          </div>
-        )}
-
-        <div className="form-group">
-          <button className="btn btn-primary">{this.state.btnLable}</button>
-        </div>
-      </form>
-    );
-  }
-}
+*/
