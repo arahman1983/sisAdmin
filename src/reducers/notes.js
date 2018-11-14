@@ -5,7 +5,8 @@ const notesDefaultState = [
     details: "some details",
     From: "MyMail@sfdf.ddd",
     To: "Teacher",
-    sentAt: 9000000
+    sentAt: 9000000,
+    readen: false
   },
   {
     id: "1",
@@ -13,7 +14,8 @@ const notesDefaultState = [
     details: "some details",
     From: "Teacher@sdgdg.dd",
     To: "MyMail",
-    sentAt: 200000
+    sentAt: 200000,
+    readen: false
   },
   {
     id: "2",
@@ -21,13 +23,25 @@ const notesDefaultState = [
     details: "some details",
     From: "MyMail@sfdf.ddd",
     To: "Teacher",
-    sentAt: 500000
+    sentAt: 500000,
+    readen: true
   }
 ];
 const notesReducer = (state = notesDefaultState, action) => {
   switch (action.type) {
     case "ADD_NOTE":
       return [...state, action.note];
+    case "EDIT_NOTE":
+      return state.map(note => {
+        if (note.id === action.id) {
+          return {
+            ...note,
+            ...action.updates
+          };
+        } else {
+          return note;
+        }
+      });
     case "REMOVE_NOTE":
       return state.filter(({ id }) => id !== action.id);
     default:

@@ -1,5 +1,4 @@
 import uuid from "uuid";
-var d = new Date();
 export const addStudent = ({
   enName = "",
   arName = "",
@@ -23,7 +22,7 @@ export const addStudent = ({
     password,
     hoppiesActivities,
     pic,
-    sentAt: d.getTime()
+    sentAt: new Date().getTime()
   }
 });
 

@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-const NotesRow = ({ id, title, From, To, sentAt }) => {
+const NotesRow = ({ id, title, From, To, sentAt, readen }) => {
   return (
     <tr>
       <th scope="row">{title}</th>

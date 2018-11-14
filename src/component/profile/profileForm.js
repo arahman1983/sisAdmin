@@ -26,13 +26,133 @@ class ProfileForm extends React.Component {
       }
     });
   };
-
+  enNameChange = e => {
+    const enName = e.target.value;
+    this.setState(() => ({
+      enName
+    }));
+  };
+  arNameChange = e => {
+    const arName = e.target.value;
+    this.setState(() => ({
+      arName
+    }));
+  };
+  jobTitleChange = e => {
+    const jobTitle = e.target.value;
+    this.setState(() => ({
+      jobTitle
+    }));
+  };
+  emailChange = e => {
+    const email = e.target.value;
+    this.setState(() => ({
+      email
+    }));
+  };
+  phoneChange = e => {
+    const phone = e.target.value;
+    this.setState(() => ({
+      phone
+    }));
+  };
+  userChange = e => {
+    const username = e.target.value;
+    this.setState(() => ({
+      username
+    }));
+  };
+  passChange = e => {
+    const password = e.target.value;
+    this.setState(() => ({
+      password
+    }));
+  };
   render() {
     console.log(this.state);
     return (
       <form>
         <div className="row my-3">
           <div className="col-md-8">
+            <div className="form-group">
+              <span>English Name: </span>
+              <input
+                name="enName"
+                type="text"
+                className="form-control"
+                placeholder="English Name"
+                value={this.state.enName}
+                onChange={this.enNameChange}
+              />
+            </div>
+            <div className="form-group">
+              <span>Arabic Name: </span>
+              <input
+                name="arName"
+                type="text"
+                className="form-control"
+                placeholder="Arabic Name"
+                value={this.state.arName}
+                onChange={this.arNameChange}
+              />
+            </div>
+            <div className="form-group">
+              <span>Job Title: </span>
+              <input
+                name="jobTitle"
+                type="text"
+                className="form-control"
+                placeholder="Job Title"
+                value={this.state.jobTitle}
+                onChange={this.jobTitleChange}
+              />
+            </div>
+            <hr />
+            <div className="form-group">
+              <span>E-mail: </span>
+              <input
+                name="email"
+                type="email"
+                className="form-control"
+                placeholder="Example@domain.ext"
+                value={this.state.email}
+                onChange={this.emailChange}
+              />
+            </div>
+            <div className="form-group">
+              <span>Phone: </span>
+              <input
+                name="phone"
+                type="text"
+                className="form-control"
+                placeholder="phone number"
+                value={this.state.phone}
+                onChange={this.phoneChange}
+              />
+            </div>
+            <hr />
+            <div className="form-group">
+              <span>Username: </span>
+              <input
+                name="usename"
+                type="text"
+                className="form-control"
+                placeholder="userName"
+                value={this.state.username}
+                onChange={this.userChange}
+              />
+            </div>
+            <div className="form-group">
+              <span>Password: </span>
+              <input
+                name="password"
+                type="password"
+                className="form-control"
+                placeholder="password"
+                value={this.state.password}
+                onChange={this.passChange}
+              />
+            </div>
             <hr />
             <button className="btn btn-primary">Edit Profile</button>
           </div>

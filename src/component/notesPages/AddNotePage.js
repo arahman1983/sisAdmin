@@ -17,6 +17,7 @@ const AddNotePage = props => {
           student={props.student}
           teacher={props.teacher}
           parent={props.parent}
+          profile={props.profile}
           onSubmit={note => {
             props.dispatch(addNote(note));
             props.history.push("/notes");
@@ -32,7 +33,8 @@ const mapStateToProps = state => {
     noteToView: state.notes,
     student: state.students,
     teacher: state.teachers,
-    parent: state.parents
+    parent: state.parents,
+    profile: state.profile
   };
 };
 

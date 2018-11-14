@@ -6,7 +6,7 @@ export class NoteForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      From: "",
+      From: props.profile.email,
       To: !!props.From ? props.From : "",
       details: "",
       error: "",
@@ -54,9 +54,7 @@ export class NoteForm extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    var d = new Date();
-
-    if (!this.state.To || !this.state.details) {
+    if (!this.state.details) {
       this.setState(() => ({
         error: "You should add details and email to send at least"
       }));
@@ -66,10 +64,10 @@ export class NoteForm extends React.Component {
       }));
       this.props.onSubmit({
         title: this.state.title,
-        To: this.state.To,
-        From: "mymail@ddd.cc",
+        To: this.state.To ? this.state.To : this.state.value,
+        From: this.state.From,
         details: this.state.details,
-        sentAt: d.getTime()
+        sentAt: new Date().getTime()
       });
     }
   };
