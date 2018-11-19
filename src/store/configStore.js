@@ -6,6 +6,7 @@ import studentsReducer from "../reducers/students";
 import teachersReducer from "../reducers/teachers";
 import parentsReducer from "../reducers/parents";
 import profileReducer from "../reducers/profile";
+import scadualReducer from "../reducers/scadual";
 
 const comoseEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,7 +18,8 @@ export default () => {
       teachers: teachersReducer,
       parents: parentsReducer,
       profile: profileReducer,
-      filters: filtersReducer
+      filters: filtersReducer,
+      events: scadualReducer
     }),
     comoseEnhancers(applyMiddleware(thunk))
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
