@@ -22,9 +22,10 @@ class ViewNotePage extends React.Component {
   componentWillMount() {
     this.setState({ readen: true });
   }
-
   componentDidMount() {
-    this.props.dispatch(editNote(this.props.noteToView.id, this.state));
+    const id = this.state.id;
+    const updates = { ...this.state };
+    this.props.dispatch(editNote({ id }, updates));
   }
 
   render() {
@@ -64,8 +65,8 @@ class ViewNotePage extends React.Component {
               <button
                 onClick={() => {
                   const id = this.state.id;
-                  this.state.dispatch(removeNote({ id }));
-                  this.state.history.push("/notes");
+                  this.props.dispatch(removeNote({ id }));
+                  this.props.history.push("/notes");
                 }}
                 className="btn btn-warning"
               >

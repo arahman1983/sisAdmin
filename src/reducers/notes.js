@@ -32,6 +32,7 @@ const notesReducer = (state = notesDefaultState, action) => {
     case "ADD_NOTE":
       return [...state, action.note];
     case "EDIT_NOTE":
+      console.log(action.updates);
       return state.map(note => {
         if (note.id === action.id) {
           return {

@@ -19,9 +19,10 @@ export const addNote = ({
   }
 });
 
-export const editNote = ({ id } = {}) => ({
+export const editNote = ({ id } = {}, updates) => ({
   type: "EDIT_NOTE",
-  id
+  id,
+  updates
 });
 
 export const removeNote = ({ id } = {}) => ({
