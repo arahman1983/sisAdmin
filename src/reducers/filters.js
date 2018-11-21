@@ -8,6 +8,11 @@ const filtersReducer = (state = filtersReducerDefault, action) => {
         ...state,
         sortBy: "date"
       };
+    case "SORT_BY_GRADE":
+      return {
+        ...state,
+        sortBy: "grade"
+      };
     default:
       return state;
   }

@@ -9,11 +9,6 @@ const ScadualRow = ({ id, title, date, time, grade }) => {
       <td>{moment(date).format("MMM Do, YY")}</td>
       <td>{moment(time).format("LT")}</td>
       <td>{grade}</td>
-      <td>
-        <Link className="btn btn-primary" to={`/scadualData/${id}`}>
-          <h6>View</h6>
-        </Link>
-      </td>
     </tr>
   );
 };
