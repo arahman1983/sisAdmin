@@ -1,18 +1,18 @@
 import moment from "moment";
 const Defaultevents = [
   {
-    title: "sdfdsfdsfdsf",
-    start: moment(new Date()).format("YY-MM-DD"),
-    end: "2018-11-21",
-    allDay: false,
-    resource: "grade3"
+    id: "4",
+    title: "event 6 - grade 3",
+    start: new Date(),
+    end: new Date(moment().add(1, "days")),
+    resource: "grade 3"
   },
   {
-    title: "rdd",
-    start: "2018-11-21",
-    end: "2018-11-21",
-    allDay: false,
-    resource: "grade3"
+    id: "1",
+    title: "event 1 - grade 2",
+    start: new Date(),
+    end: new Date(moment().add(1, "days")),
+    resource: "grade 3"
   }
 ];
 const scadualReducer = (state = Defaultevents, action) => {
