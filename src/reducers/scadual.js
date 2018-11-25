@@ -2,24 +2,26 @@ import moment from "moment";
 const Defaultevents = [
   {
     id: "4",
-    title: "event 6 - grade 3",
+    title: "event 6",
     start: new Date(),
-    end: new Date(moment().add(1, "days")),
-    resource: "grade 3"
+    end: new Date(moment()),
+    grade: "grade 3",
+    teacher: ""
   },
   {
     id: "1",
-    title: "event 1 - grade 2",
+    title: "event 1",
     start: new Date(),
     end: new Date(moment().add(1, "days")),
-    resource: "grade 3"
+    grade: "grade 1",
+    teacher: ""
   }
 ];
 const scadualReducer = (state = Defaultevents, action) => {
   switch (action.type) {
-    /*case "ADD_NOTE":
-      return [...state, action.note];
-    case "EDIT_NOTE":
+    case "ADD_SCITEM":
+      return [...state, action.event];
+    /* case "EDIT_NOTE":
       console.log(action.updates);
       return state.map(note => {
         if (note.id === action.id) {

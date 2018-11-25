@@ -13,6 +13,7 @@ class SchoolScadualPage extends React.Component {
       events: this.props.events
     };
   }
+
   renderHeader() {
     const dateFormat = "MMMM YYYY";
     return (

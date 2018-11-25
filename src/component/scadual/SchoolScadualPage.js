@@ -12,12 +12,12 @@ class SchoolScadualPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: this.props.events
+      events: this.props.events.map(event => event)
     };
   }
 
   render() {
-    console.log(this.state.events);
+    let events = this.state.events.map(event => event);
     return (
       <div className="col-md-9">
         <NotesHeader section="School Scadual" />
@@ -26,6 +26,10 @@ class SchoolScadualPage extends React.Component {
           <BigCalendar
             localizer={localizer}
             defaultView="month"
+            titleAccessor={function(e) {
+              console.log(e);
+              return e.title + " / " + e.grade;
+            }}
             defaultDate={new Date()}
             events={this.state.events}
             startAccessor="start"
