@@ -78,7 +78,6 @@ export class ParentForm extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    var d = new Date();
     if (!this.state.username) {
       this.setState(() => ({
         error: "You should add username and email to send at least"
@@ -98,7 +97,7 @@ export class ParentForm extends React.Component {
         password: this.state.password,
         hoppiesActivities: this.state.hoppiesActivities,
         pic: this.state.pic,
-        sentAt: d.getTime()
+        sentAt: new Date().getTime()
       });
     }
   };

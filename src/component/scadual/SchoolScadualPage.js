@@ -17,7 +17,6 @@ class SchoolScadualPage extends React.Component {
   }
 
   render() {
-    let events = this.state.events.map(event => event);
     return (
       <div className="col-md-9">
         <NotesHeader section="School Scadual" />
@@ -27,7 +26,6 @@ class SchoolScadualPage extends React.Component {
             localizer={localizer}
             defaultView="month"
             titleAccessor={function(e) {
-              console.log(e);
               return e.title + " / " + e.grade;
             }}
             defaultDate={new Date()}

@@ -1,17 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
 import uuid from "uuid";
 import DateTimePicker from "react-datetime-picker";
+import moment from "moment";
 
-class ScadualForm extends React.Component {
+export default class ScadualForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: uuid(),
-      title: this.props.event.title ? this.props.event.title : "",
-      start: this.props.event.start ? this.props.event.start : "",
-      end: this.props.event.end ? this.props.event.end : "",
-      grade: this.props.event.grade ? this.props.event.grade : "",
+      id: props.event ? props.event.id : uuid(),
+      title: props.event ? props.event.title : "",
+      start: props.event ? props.event.start : new Date(moment()),
+      end: props.event ? props.event.end : new Date(moment()),
+      grade: props.event ? props.event.grade : "",
       teacher: "",
       error: ""
     };
@@ -37,7 +37,7 @@ class ScadualForm extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    if (!this.state.details) {
+    if (!this.state.title || !this.state.start) {
       this.setState(() => ({
         error: "You should add details and email to send at least"
       }));
@@ -55,7 +55,9 @@ class ScadualForm extends React.Component {
     }
   };
 
-  onChangeStart = start => this.setState({ start });
+  onChangeStart = start => {
+    this.setState({ start });
+  };
   onChangeEnd = end => this.setState({ end });
 
   render() {
@@ -75,6 +77,7 @@ class ScadualForm extends React.Component {
           <div className="row">
             <div className="form-group col-6">
               <span>Start : </span>
+              <br />
               <DateTimePicker
                 onChange={this.onChangeStart}
                 value={this.state.start}
@@ -82,6 +85,7 @@ class ScadualForm extends React.Component {
             </div>
             <div className="form-group col-6">
               <span>End : </span>
+              <br />
               <DateTimePicker
                 onChange={this.onChangeEnd}
                 value={this.state.end}
@@ -116,11 +120,3 @@ class ScadualForm extends React.Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    event: state.events
-  };
-};
-
-export default connect(mapStateToProps)(ScadualForm);

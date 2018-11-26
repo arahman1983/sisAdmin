@@ -5,12 +5,11 @@ import ScadualForm from "./ScadualForm";
 import { addScItem } from "../../actions/scadual";
 
 const ScadualItemAdd = props => {
-  console.log(props);
   return (
     <div className="col-md-9">
       <NotesHeader section="School Scadual" />
       <ScadualForm
-        parent={props.events}
+        event={props.event}
         onSubmit={event => {
           props.dispatch(addScItem(event));
           props.history.push("/schedule");
