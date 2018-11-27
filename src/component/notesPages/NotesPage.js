@@ -33,8 +33,11 @@ export const NotesPage = props => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  notes: getVisibleData(state.notes, state.filters)
-});
+const mapStateToProps = state => {
+  const notes = state.notes.filter(notes => notes.To === state.profile.email);
+  return {
+    notes: getVisibleData(notes, state.filters)
+  };
+};
 
 export default connect(mapStateToProps)(NotesPage);

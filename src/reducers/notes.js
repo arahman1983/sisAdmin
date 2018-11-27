@@ -3,7 +3,7 @@ const notesDefaultState = [
     id: "3",
     title: "New Note",
     details: "some details",
-    From: "MyMail@sfdf.ddd",
+    From: "myMail@domain.ext",
     To: "Teacher",
     sentAt: 9000000,
     readen: false
@@ -13,7 +13,7 @@ const notesDefaultState = [
     title: "title",
     details: "some details",
     From: "Teacher@sdgdg.dd",
-    To: "MyMail",
+    To: "myMail@domain.ext",
     sentAt: 200000,
     readen: false
   },
@@ -22,7 +22,7 @@ const notesDefaultState = [
     title: "title",
     details: "some details",
     From: "MyMail@sfdf.ddd",
-    To: "Teacher",
+    To: "myMail@domain.ext",
     sentAt: 500000,
     readen: true
   }

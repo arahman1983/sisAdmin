@@ -15,8 +15,12 @@ const WelcomePage = props => {
           <div className="col-3">
             <div className="bg-danger text-center text-white py-3 card">
               <Link to="/notes">
-                <h1> {props.allnotes.length}</h1>
-                <h6>{props.allnotes.length === 1 ? "Note" : "Notes"}</h6>
+                <h1> {props.unReadNotes.length}</h1>
+                <h6>
+                  {props.unReadNotes.length === 1
+                    ? "Unread note in your Inbox"
+                    : "Unread notes in your Inbox"}
+                </h6>
               </Link>
             </div>
           </div>
@@ -75,12 +79,15 @@ const WelcomePage = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  teachers: state.teachers,
-  students: state.students,
-  parents: state.parents,
-  allnotes: state.notes,
-  unReadNotes: state.notes.filter(unReadNotes => unReadNotes.readen === false)
-});
+const mapStateToProps = state => {
+  const notes = state.notes.filter(notes => notes.To === state.profile.email);
+  return {
+    teachers: state.teachers,
+    students: state.students,
+    parents: state.parents,
+    allnotes: notes,
+    unReadNotes: state.notes.filter(notes => notes.readen === false)
+  };
+};
 
 export default connect(mapStateToProps)(WelcomePage);
