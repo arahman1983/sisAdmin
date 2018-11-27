@@ -18,14 +18,13 @@ export const addScItem = ({
   }
 });
 
-/*export const editTeacher = (id, updates) => ({
-  type: "EDIT_TEACHER",
+export const editScItem = (id, updates) => ({
+  type: "EDIT_EVENT",
   id,
   updates
 });
 
-export const removeTeacher = ({ id } = {}) => ({
-  type: "REMOVE_TEACHER_DATA",
+export const removeScItem = ({ id } = {}) => ({
+  type: "REMOVE_EVENT",
   id
 });
-*/

@@ -95,7 +95,7 @@ label:hover {
 }
 
 .rbc-calendar {
-  min-height: 100vh !important;
+  min-height: 70vh !important;
 }
 
 .rbc-event {
@@ -112,4 +112,12 @@ label:hover {
   border-radius: 5px;
   border: 0.5px solid #ced4da !important;
   width: 100% !important;
+}
+
+.rbc-month-row,
+.rbc-event-content {
+  overflow: visible;
+}
+.rbc-row-segment {
+  position: relative;
 }

@@ -21,20 +21,20 @@ const scadualReducer = (state = Defaultevents, action) => {
   switch (action.type) {
     case "ADD_SCITEM":
       return [...state, action.event];
-    /* case "EDIT_NOTE":
+    case "EDIT_EVENT":
       console.log(action.updates);
-      return state.map(note => {
-        if (note.id === action.id) {
+      return state.map(event => {
+        if (event.id === action.id) {
           return {
-            ...note,
+            ...event,
             ...action.updates
           };
         } else {
-          return note;
+          return event;
         }
       });
-    case "REMOVE_NOTE":
-      return state.filter(({ id }) => id !== action.id);*/
+    case "REMOVE_EVENT":
+      return state.filter(({ id }) => id !== action.id);
     default:
       return state;
   }

@@ -12,7 +12,8 @@ export default class ScadualForm extends React.Component {
       start: props.event ? props.event.start : new Date(moment()),
       end: props.event ? props.event.end : new Date(moment()),
       grade: props.event ? props.event.grade : "",
-      teacher: "",
+      teacher: props.event ? props.event.teacher : "",
+      submitLable: props.event ? " Edit Item " : " Add Item ",
       error: ""
     };
   }
@@ -112,7 +113,7 @@ export default class ScadualForm extends React.Component {
           </div>
           <div className="form-group">
             <button onClick={this.onSubmit} className="btn btn-primary">
-              Add Item
+              {this.state.submitLable}
             </button>
           </div>
         </form>

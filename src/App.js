@@ -28,6 +28,7 @@ import ViewProfile from "./component/profile/viewProfile";
 import EditProfile from "./component/profile/editProdile";
 
 import ScadualItemAdd from "./component/scadual/scadualItemAdd";
+import EditEvent from "./component/scadual/scadualItemEdit";
 
 const App = () => (
   <BrowserRouter>
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
           <Route path="/additem" component={ScadualItemAdd} />
+          <Route path="/editEvent/:id" component={EditEvent} />
           <Route path="/edititem/:id" component={SchoolScadualPage} />
           <Route path="/addnote" component={AddNotePage} exact={true} />
           <Route path="/addnote/:from" component={AddNotePage} />
