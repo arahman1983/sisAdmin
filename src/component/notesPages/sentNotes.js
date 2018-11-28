@@ -7,13 +7,13 @@ import TotalItems from "../total";
 import { getVisibleData } from "../../selectors/arrangeByDate";
 import { Link } from "react-router-dom";
 
-export const NotesPage = props => (
+export const SentNotesPage = props => (
   <div className="col-md-9">
     <NotesHeader section="Notes" />
     <SendNoteBtn link="/addnote" section="Send a Note" />
     <div className="container-fluid my-3">
-      <Link className="btn btn-info text-white" to="/sentNotes">
-        Sent Notes
+      <Link className="btn btn-info text-white" to="/notes">
+        Inbox
       </Link>
     </div>
     <TotalItems
@@ -40,10 +40,10 @@ export const NotesPage = props => (
 );
 
 const mapStateToProps = state => {
-  const notes = state.notes.filter(notes => notes.To === state.profile.email);
+  const notes = state.notes.filter(notes => notes.To !== state.profile.email);
   return {
     notes: getVisibleData(notes, state.filters)
   };
 };
 
-export default connect(mapStateToProps)(NotesPage);
+export default connect(mapStateToProps)(SentNotesPage);

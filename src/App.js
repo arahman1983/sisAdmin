@@ -8,6 +8,7 @@ import SchoolScadualPage from "./component/scadual/SchoolScadualPage";
 
 import AddNotePage from "./component/notesPages/AddNotePage";
 import ViewNotePage from "./component/notesPages/ViewNotePage";
+import SentNotesPage from "./component/notesPages/sentNotes";
 
 import StudentsPage from "./component/students/StudentsPage";
 import StudentData from "./component/students/studentData";
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/ParentData/:id" component={ParentData} />
           <Route path="/editParent/:id" component={EditParent} />
 
+          <Route path="/sentNotes" component={SentNotesPage} />
           <Route path="/notes" component={NotesPage} />
           <Route path="/schedule" component={SchoolScadualPage} />
           <Route path="/additem" component={ScadualItemAdd} />
